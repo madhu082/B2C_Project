@@ -1,0 +1,33 @@
+package com.lsco.test.page
+
+import geb.Page
+import org.apache.commons.lang.RandomStringUtils
+import com.lsco.test.PropertyProvider
+import org.openqa.selenium.WebDriver
+import com.lsco.test.PropertyProvider
+
+class ProductDetailPage extends Page{
+
+
+	String getPageUrl() {
+		String url = browser.config.rawConfig.baseUrl + "p/" + PropertyProvider.getInstance().getGeneralSitePropertyValue("promotion.product.code")
+		println url
+		url
+	}
+
+	static content = { productForm {$("#pdp-buystack-form") }
+		             title {(".title")}
+	}
+
+	static at = { title }
+	def  NavigateBack(){
+		driver.navigate().back()
+		return true
+		
+	}
+	def checkProductPromo(boolean yesno){
+		assert $(".cart-promo .subsale h4 a p").isDisplayed()== yesno		
+		return true
+		
+	}
+}
