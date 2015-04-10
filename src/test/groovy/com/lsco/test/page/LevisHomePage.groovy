@@ -62,11 +62,13 @@ class LevisHomePage extends Page {
 
 	def toWomenCategoryPage() {
 		//waitFor(30){ $(".email-lightbox").@style == "display: none;" }
-		//driver.navigate().refresh()
+		driver.navigate().refresh()
+		Thread.sleep(500)
 		
 		interact {
 			moveToElement($("body > div.header-fluid > header > header > ul > li:nth-child(2) > h2"))
 		}
+		waitFor(60,3){$("#wJeansLink").isDisplayed()}
 		$("#wJeansLink").click()
 	}
 
