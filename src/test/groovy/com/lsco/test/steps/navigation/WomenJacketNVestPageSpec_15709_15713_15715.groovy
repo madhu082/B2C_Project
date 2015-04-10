@@ -1,5 +1,5 @@
 package com.lsco.test.steps.navigation
-
+import spock.lang.IgnoreRest
 import com.lsco.test.RULevisSmoke
 import com.lsco.test.page.LevisHomePage
 import com.lsco.test.page.navigation.WomenJacketsNVestPage
@@ -16,7 +16,7 @@ class WomenJacketNVestPageSpec_15709_15713_15715 extends GebSpec{
         when: "Clicking on Link to Women's Category Women's Jackets & Vests Page"
         to LevisHomePage
         at LevisHomePage
-        toPage(2,"#wJackets\\&VestsLink")
+        toPage("2","#wJackets\\&VestsLink")
 
         then: "Check Women's Jackets & Vests Page"
         at WomenJacketsNVestPage
@@ -35,13 +35,14 @@ class WomenJacketNVestPageSpec_15709_15713_15715 extends GebSpec{
         checkProducts()
 
     }
+
 	@RULevisSmoke
     def "Verify PDP page on click products in Women's Jackets & Vests Page SPRING-15715"()
     {
         when: "Clicking on Link to Women's Jackets & Vests Page"
         to LevisHomePage
         at LevisHomePage
-        toPage("4","#wJackets\\&VestsLink")
+        toPage("2","#wJackets\\&VestsLink")
 
         then: "Click PDP page on click products in Women's Jackets & Vests Page"
         at WomenJacketsNVestPage

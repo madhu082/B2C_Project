@@ -35,7 +35,7 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 	
 	
 	baseUrl = basicUrl + "/" + country + "/" + locale + "/"
-
+	println baseUrl
 	
 } else {
 	site = "levi"
@@ -43,8 +43,8 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 	basicUrl = "http://qa-500-web-000." + site + "-site.com"
 	//country = "DE"
 	//locale = "de_DE"
-	country = "GB"
-	locale = "en_GB"
+	country = "RU"
+	locale = "ru_RU"
 	testurl="qa-500"
 	reportsDir="test-output"
 //	country = "FR"
@@ -54,6 +54,7 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 //	country = "NL"
 //	locale = "nl_NL"
 	baseUrl = basicUrl + "/" + country + "/" + locale + "/"
+	
 }
 
 
@@ -115,3 +116,4 @@ PropertyProvider.getInstance().site = site
 PropertyProvider.getInstance().country = country
 PropertyProvider.getInstance().locale = locale
 PropertyProvider.getInstance().basicURL=basicUrl
+println basicUrl

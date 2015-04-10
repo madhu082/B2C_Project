@@ -117,6 +117,12 @@ drivers.each { driver ->
 //		if(project.hasProperty('username')) systemProperty "springboard.saucelabs.username", username
 //		if(project.hasProperty('password')) systemProperty "springboard.saucelabs.password", password
 	}
+	task "${driver}ResultZip"(type:Zip) {
+			baseName='SmokeTestResult'+getDate()
+			from "build/reports/${driver}Test/tests/"
+	extension='zip'
+	
+	}
 }
 
 chromeTest {
@@ -141,19 +147,9 @@ ieTest {
 }
 
 
-drivers.each { driver ->
-	task "${driver}ResultZip"(type:Zip) {
-		println " ${driver}"
-		println "$driver"
-		println driver
-			baseName='SmokeTestResult'+getDate()
-			from "build/reports/${driver}Test/tests/"
-	extension='zip'
-	
-}
-	}
 def getDate() {
 	def date = new Date()
 	def formattedDate = date.format('yyyyMMddHHmmss')
 	return formattedDate
 }
+	

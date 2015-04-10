@@ -388,11 +388,13 @@ class LevisHomePage extends Page {
    }
 
     def toPage(String headerIndex,String pageId) {
-        interact {
+        driver.manage().window().maximize();
+		interact {
             moveToElement($("body > div.header-fluid > header > header > ul > li:nth-child("+headerIndex+") > h2"))
          //   $("#wJackets&VestsLink").click()
 			Thread.sleep(2000)
         }
+		
        $(pageId).click()
         Thread.sleep(3000)
     }
@@ -690,11 +692,11 @@ def verifyloadAddtionlProdLeviRUHomePage() {
 
 def vrifyloadAdtionlProdAccsoriesLeviRUHome() {
 	//verifying whether the control goes to all category page
-	def accesoriesScreentxt = $("#main-container>article:nth-child(1)>header>article>div>h1").text().toUpperCase()
+	def accesoriesScreentxt = $("#main-container>article:nth-child(1)>header>article>div>h1").text().toUpperCase().trim()
 	println accesoriesScreentxt
-	def accesoriesHeader = PropertyProvider.getInstance().getLocalizedPropertyValue("accessoriesHeaderTxt").toUpperCase()
+	def accesoriesHeader = PropertyProvider.getInstance().getLocalizedPropertyValue("accessoriesHeaderTxt").toUpperCase().trim()
 	println accesoriesHeader
-	 assert accesoriesScreentxt == accesoriesHeader
+	accesoriesScreentxt == accesoriesHeader
 	
 	 // Selecting the option "Product A-Z" option from "Sort them by" drop-down
 	WebDriverWait wait12 = new WebDriverWait(driver, 30)
