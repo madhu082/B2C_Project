@@ -996,7 +996,7 @@ class CartPage extends Page {
 			def expMonth = PropertyProvider.getInstance().getLocalizedPropertyValue("paymentMonth")
 			$("#F1010_MM").value(expMonth)
 			$("#btnSubmit").click()
-			Thread.sleep(6000)
+			Thread.sleep(8000)
 			return true
 			}
 			}
@@ -1014,9 +1014,47 @@ class CartPage extends Page {
 			def expMonth = PropertyProvider.getInstance().getLocalizedPropertyValue("paymentMonth")
 			$("#F1010_MM").value(expMonth)
 			$("#btnSubmit").click()
-			Thread.sleep(6000)
+			Thread.sleep(8000)
 			return true
 			}
 			}
+		
+		
+		def verifyLogosChckOutPageAndHomePageForIT(){
+			
+			// verifying the payment logo images on Checkout page
+			boolean paypalChckOut = $("img[alt='Paypal']").isDisplayed()
+			println paypalChckOut
+			
+			boolean mastercardChckOut  = $("img[alt='MasterCard']").isDisplayed()
+			println mastercardChckOut
+			
+			boolean visaChckOut = $("img[alt='Visa']").isDisplayed()
+			println visaChckOut
+			
+			boolean maestroChckOut = $("img[alt='Maestro']").isDisplayed()
+			println maestroChckOut
+			
+			boolean amexChckOut = $("img[alt='American Express']").isDisplayed()
+			println amexChckOut
+			
+			Thread.sleep(2000)
+			
+			//going back to Levis or Dockers home page to verify the payment method logos on Footer
+			$(".logo").click()
+			
+			Thread.sleep(6000)
+			
+			//user is at Levis or Dockers Home page and verifying the same payment method logos
+			
+			assert $("img[alt='Paypal']").isDisplayed() == true
+			assert $("img[alt='MasterCard']").isDisplayed() == true
+			assert $("img[alt='Visa']").isDisplayed() == true
+			assert $("img[alt='Maestro']").isDisplayed() == true
+			assert $("img[alt='American Express']").isDisplayed() ==true
+			
+			return true
+			}
+		
 			
 }
