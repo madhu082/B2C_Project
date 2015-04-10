@@ -77,7 +77,7 @@ repositories { mavenCentral() }
 
 drivers.each { driver ->
 	task "${driver}Test"(type: Test) {
-		maxParallelForks=5
+		maxParallelForks=1
 	def site=System.getProperty("site")
 	def country=System.getProperty("country")
 	def flag= site && country
