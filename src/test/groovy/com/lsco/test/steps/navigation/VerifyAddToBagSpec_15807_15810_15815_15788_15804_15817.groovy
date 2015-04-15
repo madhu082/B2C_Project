@@ -38,7 +38,7 @@ class VerifyAddToBagSpec_15807_15810_15815_15788_15804_15817 extends GebSpec {
         when:"At product Details page"
         at ProductDetailPage
         clickAddToBag()
-        Thread.sleep(2000)
+        Thread.sleep(10000)
 
         then:"Check error message when trying to add a product to the bag without selecting attributes"
         verifyAddToBagWithoutSelect()
@@ -66,7 +66,7 @@ class VerifyAddToBagSpec_15807_15810_15815_15788_15804_15817 extends GebSpec {
         selectAnySize()
         selectProductQuantity("1")
         clickAddToBag()
-        Thread.sleep(2000)
+        Thread.sleep(10000)
 
         then: "Verify added Items in bag"
         at ProductDetailPage
@@ -106,7 +106,7 @@ class VerifyAddToBagSpec_15807_15810_15815_15788_15804_15817 extends GebSpec {
         //select more quantity of same SKU
         selectProductQuantity("1")
         clickAddToBag()
-        Thread.sleep(2000)
+        Thread.sleep(10000)
 
         then: "Verify added Items in bag"
         at ProductDetailPage
