@@ -135,7 +135,7 @@ class SearchResultSpec extends GebSpec{
 		updateQuantity()
 
 		where:
-		Item<<["474560008"] //Dockers[DE]
+		Item<<["202450074"] //Dockers[DE]
 
 	}
 

@@ -38,11 +38,11 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 	println baseUrl
 	
 } else {
-	site = "levi"
-	//site = "dockers"
+	//site = "levi"
+	site = "dockers"
 	basicUrl = "http://qa-500-web-000." + site + "-site.com"
-	//country = "DE"
-	//locale = "de_DE"
+	country = "DE"
+	locale = "de_DE"
 	//country = "RU"
 	//locale = "ru_RU"
 	testurl="qa-500"
@@ -51,8 +51,8 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
     //locale = "fr_FR"
 //	country = "DK"
 //	locale = "da_DK"
-//	country = "NL"
-//	locale = "nl_NL"
+    //country = "NL"
+    //locale = "nl_NL"
 	//country = "GB"
 	//locale = "en_GB"
 	baseUrl = basicUrl + "/" + country + "/" + locale + "/"
