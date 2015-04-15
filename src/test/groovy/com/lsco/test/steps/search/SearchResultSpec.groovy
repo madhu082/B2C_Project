@@ -166,7 +166,7 @@ class SearchResultSpec extends GebSpec{
 		updateQuantity()
 
 		where:
-		Item<<["045111098"] //Levi[DE]
+		Item<<["005040131"] //Levi[DE]
 
 	}
 
