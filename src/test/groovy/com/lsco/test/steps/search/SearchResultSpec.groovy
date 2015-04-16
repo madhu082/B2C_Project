@@ -16,7 +16,7 @@ import geb.spock.GebSpec
 //Dockers-GB [15790,15793,15795]
 //Dockers-DE [15798]
 //Levi-DE [15784]
-import spock.lang.IgnoreRest
+//import spock.lang.IgnoreRest
 class SearchResultSpec extends GebSpec{
 	//SPRING-15751-Levi [GB]- Add to the bag - Verify adding to the bag from PDP
 	//SPRING-15737-Levi [GB]- Verify that the Search Result page display products, when the user placed a valid search.

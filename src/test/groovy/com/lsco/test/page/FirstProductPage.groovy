@@ -445,19 +445,19 @@ class FirstProductPage extends Page {
 		return true
 	}
 
-	def CheckErrorsInBagItems(String property) {
-		String errorMEssage = PropertyProvider.getInstance().getLocalizedPropertyValue(property)
-		interact {
-			moveToElement($(".mini-cart"))
-			Thread.sleep(3000)
-		}
-		Thread.sleep(3000)
-		assert  $("#maxSkuError>span").isDisplayed()
-		//waitFor(20, 3) { $(".cartError > span:nth-child(1)").isDisplayed() }
-		assert $(".cartError > span:nth-child(1)").text().toLowerCase() == errorMEssage.toLowerCase()
-		return true
-	}
-	
+	 def CheckErrorsInBagItems(String property) {
+              String errorMEssage = PropertyProvider.getInstance().getLocalizedPropertyValue(property)
+              String errMessageActual
+              interact {
+                     moveToElement($(".mini-cart"))
+                     Thread.sleep(3000)
+              }
+              errMessageActual=$(".cartError > span:nth-child(1)").text().toLowerCase()
+              println errMessageActual
+              assert errMessageActual == errorMEssage.toLowerCase()
+              return true
+       }
+
 	def CheckErrorsOnAddingToBag() {
 		String errorMessageWaist = PropertyProvider.getInstance().getLocalizedPropertyValue("bag.items.error.invalid.waist")
 		//waitFor(60, 3) { $(".pdp-sizes.pdp-length-sizes>div>p").isDisplayed() }
