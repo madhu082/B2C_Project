@@ -8,6 +8,7 @@ import com.lsco.test.page.login.DockersMyAccountPage
 import com.lsco.test.page.login.LevisLoginPage
 import com.lsco.test.page.login.LevisMyAccountPage
 import geb.spock.GebReportingSpec
+import com.lsco.test.page.OrderConfirmationPage
 
 class CheckOutAsaLoggedInUserSpec_Dockers_16674_GB extends GebReportingSpec{
 	@GBDockersSmoke
@@ -67,6 +68,8 @@ class CheckOutAsaLoggedInUserSpec_Dockers_16674_GB extends GebReportingSpec{
 		  
 	then: "Checking out the order with Credit Card Details"
 	   fillCreditCardDataLatest()
+	   at OrderConfirmationPage
+	   VerifyOrder()
 		 	   
 	   }
 	}

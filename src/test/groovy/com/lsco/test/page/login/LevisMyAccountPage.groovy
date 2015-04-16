@@ -238,7 +238,7 @@ class LevisMyAccountPage extends Page{
 		  Thread.sleep(2000)
 		  $(".order-history>tbody>tr:nth-child("+i+")>td:nth-child(1)>p>a").click()
 		  Thread.sleep(1000)
-		 // assert $(".myaccount-top>h2").text().toUpperCase() == "ORDER DETAILS"
+		 
 		  def okValue = PropertyProvider.getInstance().getLocalizedPropertyValue("orderDetail")
 		  $(".myaccount-top>h2").text().toUpperCase() == okValue
 		  return true

@@ -313,8 +313,8 @@ class SearchResultSpec extends GebSpec{
 		assert AfterPrice > BeforePrice
 
 		where:
-		Item1<<["657790015"] //Dockers[GB]
-		Item2<<["057030028	"] //Dockers[GB]
+		Item1<<["474510013"] //Dockers[GB]
+		Item2<<["202450080"] //Dockers[GB]
 
 	}
 //	//Incomplete: zoom functionality not working

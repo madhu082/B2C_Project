@@ -31,13 +31,7 @@ class SignOutFromCheckOutSpec_17758_Dockers_GB extends GebReportingSpec{
 	then: "Registered user performs Sign-out & verifies product is removed from thebag"
 	    SignOut_Checkout()
 		VerifyProductRemoved()
-		
-	when: "User Again checks-out as a guest"
-		at CartPage
-		UserCheckOutAsAGuest()
-		
-	then: "Registered user again signs-in & sees the product added earlier"
-		at CartPage
+		//at CartPage
 		SignIn_Checkout()
 		VerifyProductAdded()
 			   

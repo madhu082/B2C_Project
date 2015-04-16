@@ -38,8 +38,8 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 	println baseUrl
 	
 } else {
-	site = "levi"
-	//site = "dockers"
+	//site = "levi"
+	site = "dockers"
 	basicUrl = "http://qa-500-web-000." + site + "-site.com"
 	//country = "DE"
 	//locale = "de_DE"

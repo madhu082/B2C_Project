@@ -573,9 +573,10 @@ class CartPage extends Page {
 	
 	def phone(){
 		String Randomresult = RandomStringUtils.random(64, false, true);
-		Randomresult = RandomStringUtils.random(6, 0, 10, true, true, "1234567890".toCharArray());
+		Randomresult = RandomStringUtils.random(10, 0, 10, true, true, "0123465879".toCharArray()).concat("0000");
 		$("#contact-phone").value(Randomresult)
-				}
+		return true
+		}
 	
 	//Added by Dipannita
 	def fillingShippingAddrDetailsUpdated(){

@@ -7,6 +7,7 @@ import com.lsco.test.page.login.LevisLoginPage
 import com.lsco.test.page.login.LevisMyAccountPage
 import geb.spock.GebReportingSpec
 import geb.spock.GebSpec
+import com.lsco.test.page.OrderConfirmationPage
 
 class CheckOutAsaLoggedInUserSpec_LEVI_16673 extends GebSpec{
 	@GBLevisSmoke
@@ -67,6 +68,8 @@ class CheckOutAsaLoggedInUserSpec_LEVI_16673 extends GebSpec{
 		  
 	then: "Checking out the order with Credit Card Details"
 	   fillCreditCardDataLatest()
+	   at OrderConfirmationPage
+	   VerifyOrder()
 		 	   
 	   }
 	}

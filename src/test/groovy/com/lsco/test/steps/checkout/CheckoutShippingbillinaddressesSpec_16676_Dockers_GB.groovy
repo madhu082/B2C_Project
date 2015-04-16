@@ -6,6 +6,7 @@ import com.lsco.test.page.LevisHomePage
 import com.lsco.test.page.login.LevisLoginPage
 import com.lsco.test.page.login.LevisMyAccountPage
 import geb.spock.GebReportingSpec
+import com.lsco.test.page.OrderConfirmationPage
 
 class CheckoutShippingbillinaddressesSpec_16676_Dockers_GB extends GebReportingSpec{
 	@GBDockersSmoke
@@ -45,13 +46,14 @@ class CheckoutShippingbillinaddressesSpec_16676_Dockers_GB extends GebReportingS
 	   at CartPage
 	   toCheckoutPageLatest()
 	   //ChangeShippingAddress()
-	   //phone()
+	   phone()
 	   submitData()
 	   chooseMasterCard()
    	   
 	then: "Checking out the order with Credit Card Details"
 	   fillCreditCardDataLatest()
-	   
+	   at OrderConfirmationPage
+	   VerifyOrder()
 	   }
 	}
 	

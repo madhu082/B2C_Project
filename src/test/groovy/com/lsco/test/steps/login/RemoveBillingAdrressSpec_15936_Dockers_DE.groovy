@@ -12,6 +12,8 @@ import com.lsco.test.page.login.LevisLoginPage
 import com.lsco.test.page.register.AccountRegistrationPage
 import com.lsco.test.page.CartPage
 import com.lsco.test.page.FirstProductPage
+import com.lsco.test.page.OrderConfirmationPage
+
 
 
 
@@ -71,6 +73,9 @@ class RemoveBillingAdrressSpec_15936_Dockers_DE extends GebSpec{
 		   
 	 then: "Checking out the order with Credit Card Details"
 		fillCreditCardDataLatest()
+		at OrderConfirmationPage
+		VerifyOrder()
+		
 	       }
 		}
 	
