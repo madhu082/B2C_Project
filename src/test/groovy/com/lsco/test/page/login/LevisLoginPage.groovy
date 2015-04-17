@@ -157,11 +157,14 @@ class LevisLoginPage extends Page {
 			Thread.sleep(2000)
 			//click on save button
 			$("input[type='image']").click()
-			
+			driver.switchTo().defaultContent()
 			Thread.sleep(5000)
-			waitFor{$("#content>span").displayed}
+			WebDriverWait wait=new WebDriverWait(driver,20)
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
+		
+			waitFor(50){$("#content").displayed}
 			//verifying the succesful optin message
-			def cnfrmMsg = $("#content>span").text()
+			def cnfrmMsg = $("#content").text()
 			assert cnfrmMsg.contains("Your preferences have been saved")
 			
 			driver.switchTo().defaultContent()
@@ -172,7 +175,7 @@ class LevisLoginPage extends Page {
 			marketingEmailTxtBox.value(emailTxt)
 			$(".btn-dbbdr").click()
 			Thread.sleep(7000)
-			driver.switchTo().frame("manageEmailOptsIframe")
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
 			Thread.sleep(2000)
 			println $("input#New_Arrivals").attr('checked')
 		assert $("input#New_Arrivals").attr('checked') == "true"
@@ -210,10 +213,16 @@ class LevisLoginPage extends Page {
 			$("input#Brand_Messages").click()
 			Thread.sleep(2000)
 			//click on save button
+				Thread.sleep(2000)
+			if($("input[type='image']").displayed)
 			$("input[type='image']").click()
-			
 			Thread.sleep(5000)
 			//verifying the succesful optin message
+		driver.switchTo().defaultContent()
+			Thread.sleep(5000)
+			WebDriverWait wait=new WebDriverWait(driver,20)
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
+			waitFor(100){$("#content>span").text()!=null}
 			def cnfrmMsg = $("#content>span").text()
 			assert cnfrmMsg.contains("Your preferences have been saved")
 			
@@ -228,9 +237,16 @@ class LevisLoginPage extends Page {
 			driver.switchTo().frame("manageEmailOptsIframe")
 			Thread.sleep(2000)
 						$("#Unsubscribe").click()
+												waitFor(20){$("input[type='image']")}
 						$("input[type='image']").click()
+						driver.switchTo().defaultContent()
 						Thread.sleep(5000)
-						def optOutMsg = $("#content>span").text()
+				
+						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
+						
+						waitFor(50){$("#content")}
+						def optOutMsg = $("#content").text()
+
 			assert optOutMsg.contains("You will no longer receive")
 			driver.switchTo().defaultContent()
 			Thread.sleep(5000)
@@ -287,7 +303,12 @@ class LevisLoginPage extends Page {
 			
 			Thread.sleep(7000)
 			//verifying the succesful optin message
-			def cnfrmMsg = $("#content>span").text()
+				driver.switchTo().defaultContent()
+			Thread.sleep(5000)
+			WebDriverWait wait=new WebDriverWait(driver,20)
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
+			waitFor(100){$("#content")}
+			def cnfrmMsg = $("#content").text()
 			assert cnfrmMsg.contains("Your preferences have been saved")
 			
 			driver.switchTo().defaultContent()
@@ -346,10 +367,15 @@ class LevisLoginPage extends Page {
 			//click on save button
 			$("input[type='image']").click()
 			
+				Thread.sleep(1000);
+		driver.switchTo().defaultContent()
 			Thread.sleep(5000)
+			WebDriverWait wait=new WebDriverWait(driver,20)
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
+			waitFor(100){$("#content")}
 			waitFor{$("#content>span").isDisplayed()}
 			//verifying the succesful optin message
-			def cnfrmMsg = $("#content>span").text()
+			def cnfrmMsg = $("#content").text()
 			assert cnfrmMsg.contains("Your preferences have been saved")
 			
 			driver.switchTo().defaultContent()
@@ -365,7 +391,12 @@ class LevisLoginPage extends Page {
 			$("#Unsubscribe").click()
 			$("input[type='image']").click()
 			Thread.sleep(5000)
-			def optOutMsg = $("#content>span").text()
+			driver.switchTo().defaultContent()
+			Thread.sleep(5000)
+			
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("manageEmailOptsIframe")))
+			waitFor(100){$("#content")}
+			def optOutMsg = $("#content").text()
 			assert optOutMsg.contains("You will no longer receive")
 			Thread.sleep(2000)
 			driver.switchTo().defaultContent()
@@ -406,6 +437,7 @@ class LevisLoginPage extends Page {
 			//$("input#Brand_Campaign_Events&&type='checkbox'").value(1)
 			
 			//println $("input#Brand_Campaign_Events").text()
+			waitFor(100){$("#Brand_Messages")}
 			$("#Brand_Messages").click()
 			Thread.sleep(4000)
 			

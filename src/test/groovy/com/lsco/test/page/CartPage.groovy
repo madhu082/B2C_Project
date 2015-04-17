@@ -1,5 +1,6 @@
 package com.lsco.test.page
-
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebElement
 
 import com.lsco.test.page.model.UserDataModelMap
 import geb.Page
@@ -13,11 +14,15 @@ import com.lsco.test.page.model.ProductDataModel
 import com.lsco.test.page.model.ProductDataModelMap
 import com.lsco.test.page.model.UserDataModelMap
 import com.lsco.test.page.register.RegistrationDataModel
+import org.openqa.selenium.StaleElementReferenceException
 import geb.Page
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.Select
+import org.openqa.selenium.By
+import org.apache.commons.collections.Predicate
 import org.apache.commons.lang.RandomStringUtils
 import org.openqa.selenium.JavascriptExecutor
-// added By Suprito after 12 th March 2015
-import org.openqa.selenium.*
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.ui.WebDriverWait
 import org.openqa.selenium.support.ui.ExpectedConditions
 // added By Suprito after 31 st March 2015
@@ -277,18 +282,40 @@ class CartPage extends Page {
 		$(".select2-choice").click();
 		def quantityCombo = $("#quantityCombo")
 		
-		quantityCombo.value("2")
-		quantityCombo = $("#quantityCombo")
-		assert quantityCombo.value() == "2"
+				waitFor(30){$("#quantityCombo")}
+		
+		// have the selection part twice because two items show up and we want to identify both items. The item modified goes right and the order of items are changed
+			int iterator=0
+			while(iterator<4)
+			try{
+				Select s=new Select(driver.findElement(By.name("qty")))
+				s.selectByValue("2")
+				break;
+			}catch(StaleElementReferenceException e)
+			{
+				iterator++;
+			}
+			 iterator=0
+			while(iterator<4)
+			try{
+				Select s=new Select(driver.findElement(By.name("qty")))
+				s.selectByValue("2")
+				break;
+			}catch(StaleElementReferenceException e)
+			{
+				iterator++;
+			}
+			Select s=new Select(driver.findElement(By.name("qty")))
+			assert s.getFirstSelectedOption().getText()=="2"
 		
 		orderPricing = $("li.data:nth-child(2)")
 		def newOrderPrice = orderPricing.text().replaceAll(currencySymbol, "").replaceAll(decimalSeparator, ".").toDouble()
 		//def newOrderPrice = orderPricing.text().replaceAll(currencySymbol, "").replaceAll(",", "").replaceAll(decimalSeparator, ".").toDouble()
 		
-		println "New calculated price: " + (orderPrice * quantityCombo.value().toDouble())
+		println "New calculated price: " + (orderPrice * s.getFirstSelectedOption().getText().toDouble())
 		println "New order price: " + newOrderPrice
 
-		assert orderPrice * quantityCombo.value().toDouble() == newOrderPrice
+		assert orderPrice * s.getFirstSelectedOption().getText().toDouble() == newOrderPrice
 		return true
 	}
 	def payPalLogin(username, password){
