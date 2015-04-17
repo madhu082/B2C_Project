@@ -147,7 +147,8 @@ class LevisMyAccountPage extends Page{
 	
 	def clickOnTheSearchedItem(){
 		Thread.sleep(3000)
-		$(".list-type-04>li>div:nth-child(1)>a>img").click()
+		//$(".list-type-04>li>div:nth-child(1)>a>img").click()
+		$(".stage>img").click()
 	}
 	
 	def clickNotTodayLinkMyAccountPage() {

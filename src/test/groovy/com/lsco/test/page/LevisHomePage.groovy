@@ -205,7 +205,8 @@ class LevisHomePage extends Page {
 	
 	def clickOnTheSearchedItemForGuestUsr(){
 		Thread.sleep(3000)
-		$(".list-type-04>li>div:nth-child(1)>a>img").click()
+		//$(".list-type-04>li>div:nth-child(1)>a>img").click()
+		$(".stage>img").click()
 	}
 	//Added by dipannita
 	def SearchProductIndeca()
@@ -315,7 +316,8 @@ class LevisHomePage extends Page {
    //Added by dipannita
    def clickOnTheSearchedItem(){
 	   
-	   $(".list-type-04>li>div:nth-child(1)>a>img").click()
+	   //$(".list-type-04>li>div:nth-child(1)>a>img").click()
+	   $(".stage>img").click()
 	   return true
 	   
 	   }
@@ -565,7 +567,8 @@ class LevisHomePage extends Page {
    
    def clickOnTheSearchedItemHomePage(){
 	   Thread.sleep(3000)
-	   $(".list-type-04>li>div:nth-child(1)>a>img").click()
+	  // $(".list-type-04>li>div:nth-child(1)>a>img").click()
+	   $(".stage>img").click()
    }
 
   def SearchProductWithMultipleSwatches(){
