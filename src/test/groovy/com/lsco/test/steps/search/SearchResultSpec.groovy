@@ -10,7 +10,7 @@ import com.lsco.test.page.search.SearchResultPage
 import com.lsco.test.page.search.FailSearchResultPage
 import geb.spock.GebReportingSpec
 import geb.spock.GebSpec
-
+import spock.lang.IgnoreRest
 //import com.lsco.test.SmokeLeviGB
 //Levi-GB [15751,15737,15730,15781,15847,15782,15802,15805,15733]
 //Dockers-GB [15790,15793,15795]
@@ -49,6 +49,7 @@ class SearchResultSpec extends GebSpec{
 		Item<<["306050044"] //Levi[GB]
 		//Item<<["447150300"] //Dockers[GB]
 	}
+	
 	@GBDockersSmoke
 	def "Verify Search Functionality_Dockers_GB"()
 	{
@@ -169,7 +170,7 @@ class SearchResultSpec extends GebSpec{
 		Item<<["005040131"] //Levi[DE]
 
 	}
-
+	
 	@GBDockersSmoke
 	def "Verify Product Edition from Shopping Bag_Dockers_GB"()
 	{
@@ -204,7 +205,8 @@ class SearchResultSpec extends GebSpec{
 	//Levi-GB [SPRING-15782(Product Edition using continue shopping link)]
 	//Dockers-GB[SPRING-15795(Product Edition using continue shopping link)]
 	@GBLevisSmoke
-	def "Verify Product Edition from Shopping Bag using continue shopping link"()
+
+		def "Verify Product Edition from Shopping Bag using continue shopping link"()
 	{
 		//given: "opened the dockers login url "
 		when: "Entering #Item1 to be Searched"
@@ -260,7 +262,7 @@ class SearchResultSpec extends GebSpec{
 		Item2<<["045111098"] //Levi[GB]
 
 	}
-	//@IgnoreRest
+	
 	@GBDockersSmoke
 	def "Verify Product Edition from Shopping Bag using continue shopping link_Dockers_GB"()
 	{
