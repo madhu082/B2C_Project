@@ -19,7 +19,8 @@ class PropertyProvider extends Page{
 	private PropertyProvider() {
 		testurl=System.getProperty("testurl")
 		if(testurl==null)
-		testurl="qa-500"
+		//testurl="qa-500"
+		testurl="preprod-001"
 		props = new Properties()
 		new File("resources/"+ testurl+ "tests.properties").withInputStream { stream ->
 			props.load(stream)

@@ -16,7 +16,7 @@ import spock.lang.IgnoreRest
 //Dockers-GB [15790,15793,15795]
 //Dockers-DE [15798]
 //Levi-DE [15784]
-//import spock.lang.IgnoreRest
+import spock.lang.IgnoreRest
 class SearchResultSpec extends GebSpec{
 	//SPRING-15751-Levi [GB]- Add to the bag - Verify adding to the bag from PDP
 	//SPRING-15737-Levi [GB]- Verify that the Search Result page display products, when the user placed a valid search.
@@ -73,7 +73,7 @@ class SearchResultSpec extends GebSpec{
 		removeItem()
 
 		where:
-		Item<<["447150300"] //Dockers[GB]
+		Item<<["172320002"] //Dockers[GB]
 	}
 	//Levi-GB [SPRING-15847(Product Edition)]
 	//Dockers-GB[SPRING-15790(Product Edition)]
@@ -172,6 +172,7 @@ class SearchResultSpec extends GebSpec{
 	}
 	
 	@GBDockersSmoke
+
 	def "Verify Product Edition from Shopping Bag_Dockers_GB"()
 	{
 		//given: "opened the dockers login url "
@@ -197,8 +198,9 @@ class SearchResultSpec extends GebSpec{
 		at CartPage
 		updateQuantity()
 
-		where:
-		Item<<["447150300"] //Dockers[GB]
+		where:	
+		Item<<["172320002"]
+		//Item<<["447150300"] //Dockers[GB]
 
 	}
 
@@ -206,7 +208,9 @@ class SearchResultSpec extends GebSpec{
 	//Dockers-GB[SPRING-15795(Product Edition using continue shopping link)]
 	@GBLevisSmoke
 
-		def "Verify Product Edition from Shopping Bag using continue shopping link"()
+	//@IgnoreRest
+	def "Verify Product Edition from Shopping Bag using continue shopping link"()
+
 	{
 		//given: "opened the dockers login url "
 		when: "Entering #Item1 to be Searched"
@@ -252,7 +256,6 @@ class SearchResultSpec extends GebSpec{
 		to CartPage
 		at CartPage
 		
-
         assert ProductAddedbefore +1 == ProductAdded.size()
 		double AfterPrice= VerifyShoppingBagPrice()
 		assert AfterPrice > BeforePrice
@@ -315,8 +318,8 @@ class SearchResultSpec extends GebSpec{
 		assert AfterPrice > BeforePrice
 
 		where:
-		Item1<<["474510013"] //Dockers[GB]
-		Item2<<["202450080"] //Dockers[GB]
+		Item1<<["172320002"] //Dockers[GB]
+		Item2<<["672640002"] //Dockers[GB]
 
 	}
 //	//Incomplete: zoom functionality not working
@@ -410,6 +413,7 @@ class SearchResultSpec extends GebSpec{
 		}
 		//SPRING-15733 - Levi [GB]- Swatch selection - Verify swatch selection when there are out of stock variants.
 	@GBLevisSmoke
+	//@IgnoreRest
 	def "Verify swatch selection when there are out of stock variants_15733"()
 		{
 				when: "Entering #Item1 to be Searched"
