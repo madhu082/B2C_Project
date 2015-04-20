@@ -31,21 +31,24 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 	basicUrl = "http://" + testurl + "-web-000." + site + "-site.com"
 
 	else
-	basicUrl = "http://qa-500-web-000." + site + "-site.com"
+	//basicUrl = "http://qa-500-web-000." + site + "-site.com"
+	basicUrl = "http://preprod-001-web-000." + site + "-site.com"
 	
 	
 	baseUrl = basicUrl + "/" + country + "/" + locale + "/"
 	println baseUrl
 	
 } else {
-	//site = "levi"
-	site = "dockers"
-	basicUrl = "http://qa-500-web-000." + site + "-site.com"
+	site = "levi"
+	//site = "dockers"
+	//basicUrl = "http://qa-500-web-000." + site + "-site.com"
+	basicUrl = "http://preprod-001-web-000." + site + "-site.com"
 	//country = "DE"
 	//locale = "de_DE"
 	//country = "RU"
 	//locale = "ru_RU"
-	testurl="qa-500"
+	//testurl="qa-500"
+	testurl="preprod-001"
 	reportsDir="test-output"
     //country = "FR"
     //locale = "fr_FR"
