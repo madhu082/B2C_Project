@@ -33,7 +33,7 @@ import com.lsco.test.page.hmc.HMCLoginPage
 
 class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebSpec {
 	
-	@GBLevisSmoke
+	@GBLevisSmoke	
 	def "CheckoutWithOrderLevelPromotion_Levis_with_couponcode_Restriction_16004"()
 	{
 		
@@ -80,7 +80,7 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		Thread.sleep(2000)
 		driver.navigate().back()
 		Thread.sleep(2000)
-		at LevisMyAccountPage
+		at LevisMyAccountPage		
 		toPage("2","#wJackets\\&VestsLink")
 	
 		
@@ -88,8 +88,9 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		at WomenJacketsNVestPage
 		toPDPPageOnClickingItem(0)
 		
+
 		when: "Add the product in bag from PDP page to get promo with restriction"
-		//For this case promo is enabled if the order amount in cart>100. Assumed that with 3 products the order amount becomes >100
+		//For this case promo is enabled if the order amount in cart>100. Assumed that with 3 products the order amount becomes >100 
 				
 		at ProductDetailPage
 		selectAnySize()
@@ -111,6 +112,7 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		//promo is enabled if the order amount in cart>100.Given promo-identifier
 		//String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_GB")
 		checkCoupon(Couponidentifier)
+
 		
 		when: "user goes to Cart Page and proceed to check out"
 		toCheckoutPageLatest()
@@ -124,7 +126,7 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		//fillCreditCardDataLatest()
 		fillCreditCardDataLatestAmex()
 		at OrderConfirmationPage
-		chksavingsAmount(savingsamount)
+		chksavingsAmount(savingsamount)	
 		
 		and: "Disable all promotions after run"
 		to HMCLoginPage
@@ -190,8 +192,9 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		at WomenJacketsNVestPage
 		toPDPPageOnClickingItem(0)
 		
+
 		when: "Add the product in bag from PDP page to get promo with No restriction"
-		//For this case some% discount Order promotion is enabled if the order amount in cart>100.
+		//For this case some% discount Order promotion is enabled if the order amount in cart>100. 
 		//Assumed that with 3 products the order amount becomes >100
 				
 		at ProductDetailPage
@@ -228,7 +231,8 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		disableAllOtherPromotions()
 		
 	}
-	
+
+
 	@DEDockersSmoke
 	def "CheckoutWithOrderLevelPromotion_Dockers__with_couponcode_Restriction_16025"()
 	{
@@ -390,17 +394,17 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		Thread.sleep(4000)
 		at LevisMyAccountPage
 		Thread.sleep(4000)
-		searchProduct("Shorts")
-		//toPage("1","#Dockers\\_Men\\_Shorts")
+		//searchProduct("Shorts")
+		toPage("1","#Dockers\\_Men\\_Shorts")
 		Thread.sleep(4000)
 		
 		then: "Click PDP page on click products in Page"
 		at DockersMenShorts
-		toPDPPageOnClickingItem(0)
+		toPDPPageOnClickingItem(1)
 		
 
 		when: "Add the product in bag from PDP page to get promo with No restriction"
-		//For this case some% discount Order promotion is enabled if the order amount in cart>100.
+		//For this case some% discount Order promotion is enabled if the order amount in cart>100. 
 		//Assumed that with 3 products the order amount becomes >100
 						
 		at ProductDetailPage
@@ -490,18 +494,18 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		toPDPPageOnClickingItem(0)
 		
 		when: "Clicked promo details to get promo inforations from latest deal"
-		//For this case promo is enabled if the order amount in cart>100.
+		//For this case promo is enabled if the order amount in cart>100.	
 		//Assumed that details should contains Promo code and Promo identifier
-		at ProductDetailPage
+		at ProductDetailPage		
 		openPromoDetailsFromLatestDeals()
 		Thread.sleep(4000)
 		
 		then:"View and check promo details"
 		//String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier")
 		String CouponCode= PropertyProvider.getInstance().getLocalizedPropertyValue("promocode")
-		driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='fancybox-iframe']")))
+		driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='fancybox-iframe']")))		
 		chkPromodetails(Couponidentifier,CouponCode)
-		driver.switchTo().defaultContent()
+		driver.switchTo().defaultContent()		
 		closepromodetails()
 		Thread.sleep(4000)
 		
@@ -512,10 +516,10 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		openPromoDetailsFromCartPromo()
 		Thread.sleep(4000)
 		
-		then:"View and check promo details"
+		then:"View and check promo details"	
 		driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='fancybox-iframe']")))
 		chkPromodetails(Couponidentifier,CouponCode)
-		driver.switchTo().defaultContent()
+		driver.switchTo().defaultContent()	
 		closepromodetails()
 		Thread.sleep(4000)
 		

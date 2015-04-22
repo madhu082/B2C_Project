@@ -35,7 +35,7 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 	@GBLevisSmoke
 	@DEDockersSmoke
 	//with Promotions
-	def "CheckoutWithProductLevelPromotionWithRestriction_16006_16027"()
+	def "CheckoutWithProductLevelPromotionWithRestriction_16006_16027"()	
 	{
 		when: "Enable promotion in hmc- pre req"
 		to HMCLoginPage
@@ -103,7 +103,7 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 		clickAddToBag()
 		Thread.sleep(4000)
 		goTobagDetails()
-	
+		Thread.sleep(10000)
 		
 		then:"View items in bag"
 		to CartPage
@@ -215,7 +215,7 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 		clickAddToBag()
 		Thread.sleep(4000)
 		goTobagDetails()
-	
+		Thread.sleep(4000)
 		
 		then:"View items in bag"
 		to CartPage
