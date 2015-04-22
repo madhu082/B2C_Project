@@ -11,6 +11,13 @@ class HMCLoginPage extends Page {
 
 	String getPageUrl() {
 		def url = browser.config.rawConfig.basicUrl + "/hmc/hybris"
+		if(browser.config.rawConfig.basicUrl.contains("preprod")){
+			String sBaseUrl=browser.config.rawConfig.basicUrl
+			sBaseUrl=sBaseUrl.replaceAll("web", "store")+ ":9001"
+			//println(sBaseUrl)
+			url=sBaseUrl+ "/hmc/hybris"
+		}
+		println(url)
 		url
 	}
 

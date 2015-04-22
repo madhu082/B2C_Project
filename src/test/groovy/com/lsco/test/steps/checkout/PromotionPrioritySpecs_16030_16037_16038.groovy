@@ -27,14 +27,53 @@ import com.lsco.test.page.navigation.DockersMenShorts
 import com.lsco.test.page.search.SearchResultPage
 import com.sun.java.util.jar.pack.Driver;
 import com.lsco.test.PropertyProvider
- 
+import com.lsco.test.page.hmc.HMCHomePage
+import com.lsco.test.page.hmc.HMCLoginPage
 
 class PromotionPrioritySpecs_16030_16037_16038 extends GebSpec {
 	
 	@GBLevisSmoke	
 	def "One with the highest priority Order level Promotion is displayed in the buy stack_16038"()
 	{
-		when: "Going to Levis GB Home Page and clicking on My Account"
+		when: "Enable promotion in hmc- pre req"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
+		
+		expandSearchOption()
+		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_GB")
+		String CouponName= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_GB")
+		println(Couponidentifier)
+		println(CouponName)
+		setIdentifier(Couponidentifier)
+		setTitle(CouponName)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		
+		expandSearchOption()
+		String Couponidentifier1= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_GB1")
+		String CouponName1= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_GB1")
+		println(Couponidentifier1)
+		println(CouponName1)
+		setIdentifier(Couponidentifier1)
+		setTitle(CouponName1)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		closeSession()
+		
+		and: "Going to Levis GB Home Page and clicking on My Account"
 		to LevisHomePage
 		at LevisHomePage
 		toMyAccountPage()
@@ -57,14 +96,60 @@ class PromotionPrioritySpecs_16030_16037_16038 extends GebSpec {
 		at ProductDetailPage
 		String p1PromoBarMsg= PropertyProvider.getInstance().getLocalizedPropertyValue("p1PromoBarMsg")+" LEARN MORE &" //High priority promo
 		String p2PromoBarMsg= PropertyProvider.getInstance().getLocalizedPropertyValue("p2PromoBarMsg")+" LEARN MORE &"  //Low priority promo
+		println("p1PromoBarMsg:"+p1PromoBarMsg)
+		println("p2PromoBarMsg:"+p2PromoBarMsg)
+		chkEnabledCartPromo(p1PromoBarMsg,p2PromoBarMsg)	
 		
-		chkEnabledCartPromo(p1PromoBarMsg,p2PromoBarMsg)			
+		and: "Disable all promotions after run"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
 	}
 	
 	@DEDockersSmoke
 	def "One with the highest priority Order level Promotion is displayed in the buy stack_16030"()
 	{
-		when: "Going to Levis GB Home Page and clicking on My Account"
+		when: "Enable promotion in hmc- pre req"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
+		
+		expandSearchOption()
+		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_DE1")
+		String CouponName= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_DE1")
+		println(Couponidentifier)
+		println(CouponName)
+		setIdentifier(Couponidentifier)
+		setTitle(CouponName)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		
+		expandSearchOption()
+		String Couponidentifier1= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_DE2")
+		String CouponName1= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_DE2")
+		println(Couponidentifier1)
+		println(CouponName1)
+		setIdentifier(Couponidentifier1)
+		setTitle(CouponName1)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		closeSession()
+		
+		and: "Going to Dockers DE Home Page and clicking on My Account"
 		to LevisHomePage
 		at LevisHomePage
 		toMyAccountPage()
@@ -93,12 +178,56 @@ class PromotionPrioritySpecs_16030_16037_16038 extends GebSpec {
 		
 		chkEnabledCartPromo(p1PromoBarMsg,p2PromoBarMsg)
 		
+		and: "Disable all promotions after run"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
+		
 		}
 	
 	@DEDockersSmoke
 	def "One with the highest priority product level Promotion is displayed cart page_16037"()
 	{
-		when: "Going to Levis GB Home Page and clicking on My Account"
+		when: "Enable promotion in hmc- pre req"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
+		
+		expandSearchOption()
+		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_DE3")
+		String CouponName= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_DE3")
+		println(Couponidentifier)
+		println(CouponName)
+		setIdentifier(Couponidentifier)
+		setTitle(CouponName)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		expandSearchOption()
+		String Couponidentifier1= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_DE4")
+		String CouponName1= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_DE4")
+		println(Couponidentifier1)
+		println(CouponName1)
+		setIdentifier(Couponidentifier1)
+		setTitle(CouponName1)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		closeSession()
+		
+		and: "Going to Dockers DE Home Page and clicking on My Account"
 		to LevisHomePage
 		at LevisHomePage
 		toMyAccountPage()
@@ -154,6 +283,13 @@ class PromotionPrioritySpecs_16030_16037_16038 extends GebSpec {
 		String p2PromoBarMsg= PropertyProvider.getInstance().getLocalizedPropertyValue("p2ProductPromoFiredMsg") //Low priority promo
 		
 		chkEnabledCartPromo(p1PromoBarMsg,p2PromoBarMsg)
+		
+		and: "Disable all promotions after run"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
 
 	}
 	
