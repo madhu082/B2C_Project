@@ -40,7 +40,7 @@ class ProductRecommendationSpec extends GebReportingSpec{
 		Item1<<["306050044"] //Levi[GB]
 
 	}
-	//@IgnoreRest
+	@IgnoreRest
 	@GBDockersSmoke
 	def "Verify product recommendation on the shopping bag_Dockers_GB"()
 	{
@@ -63,8 +63,8 @@ class ProductRecommendationSpec extends GebReportingSpec{
 		verifyRecommendationsGoesWellWithSectionData("goes.well.with.title")
 
 		where:
-		Item1<<["474560008"] //Dockers[GB]
-
+		//Item1<<["474560008"] //Dockers[GB]
+		Item1<<["202450036"]
 	}
 	//Levi-GB SPRING-15702 ["RECENTLY VIEWED PRODUCTS" on PDP]
 	//@GBLevisSmoke

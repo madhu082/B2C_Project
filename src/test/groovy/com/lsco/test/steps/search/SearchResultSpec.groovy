@@ -385,6 +385,7 @@ class SearchResultSpec extends GebSpec{
 
 	//SPRING-15805- Levi [GB]- Verify that the user cannot add more than 6 products of the same PC9 to the bag.
 	@GBLevisSmoke
+	
 	def "Verify that the user cannot add more than 6 products of the same PC9 to the bag_15805"()
 	{
 			when: "Entering #Item1 to be Searched"
@@ -413,7 +414,7 @@ class SearchResultSpec extends GebSpec{
 		}
 		//SPRING-15733 - Levi [GB]- Swatch selection - Verify swatch selection when there are out of stock variants.
 	@GBLevisSmoke
-	//@IgnoreRest
+	
 	def "Verify swatch selection when there are out of stock variants_15733"()
 		{
 				when: "Entering #Item1 to be Searched"

@@ -39,25 +39,27 @@ if(System.properties.containsKey("site") && System.properties.containsKey("count
 	println baseUrl
 	
 } else {
-	site = "levi"
-	//site = "dockers"
+	//site = "levi"
+	site = "dockers"
 	//basicUrl = "http://qa-500-web-000." + site + "-site.com"
 	basicUrl = "http://preprod-001-web-000." + site + "-site.com"
-	//country = "DE"
-	//locale = "de_DE"
+	country = "DE"
+	locale = "de_DE"
 	//country = "RU"
 	//locale = "ru_RU"
 	//testurl="qa-500"
 	testurl="preprod-001"
 	reportsDir="test-output"
-    //country = "FR"
+   // country = "FR"
     //locale = "fr_FR"
-    // country = "DK"
-     //locale = "da_DK"
+   // country = "DK"
+   // locale = "da_DK"
     //country = "NL"
     //locale = "nl_NL"
-	country = "GB"
-	locale = "en_GB"
+	//country = "GB"
+	//locale = "en_GB"
+	//country="IT"
+	//locale="it_IT"
 	baseUrl = basicUrl + "/" + country + "/" + locale + "/"
 	
 }
@@ -75,7 +77,8 @@ environments {
 	// run via â€œ./gradlew firefoxTestâ€�
 	// See: http://code.google.com/p/selenium/wiki/FirefoxDriver
 	firefox {
-		driver = { new FirefoxDriver() }
+	driver = { new FirefoxDriver() }
+
 	}
 
 	ie {

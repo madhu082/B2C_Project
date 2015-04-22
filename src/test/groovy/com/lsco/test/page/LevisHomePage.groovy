@@ -40,9 +40,7 @@ class LevisHomePage extends Page {
 		//waitFor(100){$("#global-myaccount-cta")}
 		if ($("#global-myaccount-signout").isDisplayed()){
 			$("#global-myaccount-signout").click()
-		}
-		
-		else{
+		}else{
 			println "SignOut Link is NOT PRSENT"
 		}
 		
@@ -534,7 +532,9 @@ class LevisHomePage extends Page {
 	   interact {
 		   moveToElement($("body > div.header-fluid > header > header > ul > li:nth-child(2) > h2"))
 	   }
-	   $("a[href*='fitguide/women/clothing#']").click()
+	   waitFor{$("a[href*='fitguide/women/clothing#']")}.click()
+	   println($("a[href*='fitguide/women/clothing#']").getAttribute("href"))
+	   println $("a[href*='fitguide/women/clothing#']").text()
 	   Thread.sleep(7000)
 	   def women = PropertyProvider.getInstance().getLocalizedPropertyValue("fitGuideWomensGenderTxt").toUpperCase()
 	   def fitGuideWomenScreenTxt =  $(".chooser-container>header>span").text().toUpperCase()

@@ -512,7 +512,7 @@ class LevisMyAccountPage extends Page{
 	   
 	   def okValue12 = PropertyProvider.getInstance().getLocalizedPropertyValue("negativeaddress")
 	   $("#line1").value(okValue12)
-			   
+	   
 	   def okValue13 = PropertyProvider.getInstance().getLocalizedPropertyValue("town")
 	   $("#townCity").value(okValue13)
 	   
@@ -530,9 +530,14 @@ class LevisMyAccountPage extends Page{
 	   Thread.sleep(500)
 	
 	   assert $(".myaccount-main>ul>li:nth-child(3)>div>div").isDisplayed()== true
+	   println $(".myaccount-main>ul>li:nth-child(3)>div>div").text()
 	   assert $(".myaccount-main>ul>li:nth-child(4)>div>div").isDisplayed()== true
+	   println $(".myaccount-main>ul>li:nth-child(4)>div>div").text()
 	   assert $(".myaccount-main>ul>li:nth-child(5)>div>div").isDisplayed()== true
+	   println $(".myaccount-main>ul>li:nth-child(5)>div>div").text()
 	   assert $(".myaccount-main>ul>li:nth-child(7)>div>div").isDisplayed()== true
+	   println $(".myaccount-main>ul>li:nth-child(7)>div>div").text()
+	 
 	   
 	   def okValue1 = PropertyProvider.getInstance().getLocalizedPropertyValue("Errorbillingfname")
 	   assert $(".myaccount-main>ul>li:nth-child(3)>div>div").text() == okValue1

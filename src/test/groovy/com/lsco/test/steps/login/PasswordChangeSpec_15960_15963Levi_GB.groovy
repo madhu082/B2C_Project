@@ -8,7 +8,7 @@ import geb.spock.GebReportingSpec
 
 class PasswordChangeSpec_15960_15963Levi_GB extends GebReportingSpec{
 	@GBLevisSmoke
-	@DELevisSmoke
+
 	def passwordchange(){
 	
 	when: "We are Home page & click on MyAccount"

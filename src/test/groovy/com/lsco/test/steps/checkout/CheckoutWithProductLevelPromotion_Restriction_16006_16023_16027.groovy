@@ -27,16 +27,40 @@ import com.lsco.test.page.navigation.DockersMenShorts
 import com.lsco.test.page.search.SearchResultPage
 import com.sun.java.util.jar.pack.Driver;
 import com.lsco.test.PropertyProvider
- 
+import com.lsco.test.page.hmc.HMCHomePage
+import com.lsco.test.page.hmc.HMCLoginPage
 
 class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends GebSpec {
 	
 	@GBLevisSmoke
 	@DEDockersSmoke
 	//with Promotions
-	def "CheckoutWithProductLevelPromotionWithRestriction_16006_16027"()	
+	def "CheckoutWithProductLevelPromotionWithRestriction_16006_16027"()
 	{
-		when: "Going to Levis GB Home Page and clicking on My Account"
+		when: "Enable promotion in hmc- pre req"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
+		
+		expandSearchOption()
+		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("ProductPromoidentifier")
+		String CouponName= PropertyProvider.getInstance().getLocalizedPropertyValue("ProductPromoname")
+		println(Couponidentifier)
+		println(CouponName)
+		setIdentifier(Couponidentifier)
+		setTitle(CouponName)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		closeSession()
+		
+		and: "Going to Home Page and clicking on My Account"
 		to LevisHomePage
 		at LevisHomePage
 		toMyAccountPage()
@@ -92,7 +116,7 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 		
 		then: "Coupon activated"
 		//Checked promo-identifier unblocked
-		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("ProductCouponidentifier")
+		//String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("ProductCouponidentifier")
 		checkCoupon(Couponidentifier)
 
 		
@@ -102,12 +126,21 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 		fillingShippingAddrDetails()
 		submitData()
 		//chooseMaestro()
-		chooseMasterCard()
+		//chooseMasterCard()
+		chooseAmex()
 		
 		then: "Checking out the order with Credit Card Details"
-		fillCreditCardDataLatest()
+		//fillCreditCardDataLatest()
+		fillCreditCardDataLatestAmex()
 		at OrderConfirmationPage
 		chksavingsAmount(savingsamount)
+		
+		and: "Disable all promotions after run"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
 		
 		}
 	
@@ -116,7 +149,30 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 	//without Promotions
 	def "CheckoutWithProductLevelPromotionWithoutRestriction_16023"()
 	{
-		when: "Going to Levis GB Home Page and clicking on My Account"
+		when: "Enable promotion in hmc- pre req"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
+		
+		expandSearchOption()
+		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_DE3")
+		String CouponName= PropertyProvider.getInstance().getLocalizedPropertyValue("CouponName_DE3")
+		println(Couponidentifier)
+		println(CouponName)
+		setIdentifier(Couponidentifier)
+		setTitle(CouponName)
+		searchPromoStatus("0")
+		clickSearchButton()
+		clickResult()
+		Thread.sleep(4000)
+		setCheckboxEnabled("ON")
+		clickSave()
+		Thread.sleep(5000)
+		closeSession()
+		
+		and: "Going to Home Page and clicking on My Account"
 		to LevisHomePage
 		at LevisHomePage
 		toMyAccountPage()
@@ -171,14 +227,21 @@ class CheckoutWithProductLevelPromotion_Restriction_16006_16023_16027 extends Ge
 		fillingShippingAddrDetails()
 		submitData()
 		//chooseMaestro()
-		chooseMasterCard()
-	
+		//chooseMasterCard()
+		chooseAmex()
 		
 		then: "Checking out the order with Credit Card Details"
-		fillCreditCardDataLatest()
+		//fillCreditCardDataLatest()
+		fillCreditCardDataLatestAmex()
 		at OrderConfirmationPage
 		chksavingsAmount(savingsamount)
 		
+		and: "Disable all promotions after run"
+		to HMCLoginPage
+		at HMCLoginPage
+		fillHybrisLoginFields("qa.team","pass1234")
+		clickOnTDWithText("Marketing;Promotions")
+		disableAllOtherPromotions()
 		}
 
 }
