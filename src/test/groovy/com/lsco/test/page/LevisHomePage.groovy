@@ -531,10 +531,14 @@ class LevisHomePage extends Page {
 	   WebElement element = wait5.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div.header-fluid > header > header > ul > li:nth-child(2) > h2")))
 	   interact {
 		   moveToElement($("body > div.header-fluid > header > header > ul > li:nth-child(2) > h2"))
+		   Thread.sleep(3000)
 	   }
-	   waitFor{$("a[href*='fitguide/women/clothing#']")}.click()
-	   println($("a[href*='fitguide/women/clothing#']").getAttribute("href"))
-	   println $("a[href*='fitguide/women/clothing#']").text()
+	   
+	   //waitFor{$("a[href*='fitguide/women/clothing#']")}.click()
+	   $("#Levi_Women_Fitguide").click()
+	   Thread.sleep(7000)
+	 //  println($("a[href*='fitguide/women/clothing#']").getAttribute("href"))
+	  // println $("a[href*='fitguide/women/clothing#']").text()
 	   Thread.sleep(7000)
 	   def women = PropertyProvider.getInstance().getLocalizedPropertyValue("fitGuideWomensGenderTxt").toUpperCase()
 	   def fitGuideWomenScreenTxt =  $(".chooser-container>header>span").text().toUpperCase()
@@ -546,8 +550,10 @@ class LevisHomePage extends Page {
 	    WebElement element1 = wait5.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div.header-fluid > header > header > ul > li:nth-child(1) > h2")))
 	   interact {
 		   moveToElement($("body > div.header-fluid > header > header > ul > li:nth-child(1) > h2"))
+		   Thread.sleep(3000)
 	   }
-	   $("a[href*='fitguide/men/clothing#']").click()
+	   //$("a[href*='fitguide/men/clothing#']").click()
+	   $("#Levi_Men_FitGuide").click()
 	   Thread.sleep(7000)
 	   def men = PropertyProvider.getInstance().getLocalizedPropertyValue("fitGuideMensGenderTxt").toUpperCase()
 	   def fitGuideMenScreenTxt =  $(".chooser-container>header>span").text().toUpperCase()

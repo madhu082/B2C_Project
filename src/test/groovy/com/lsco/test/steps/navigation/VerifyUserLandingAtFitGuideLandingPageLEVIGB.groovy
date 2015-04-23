@@ -15,7 +15,7 @@ class VerifyUserLandingAtFitGuideLandingPageLEVIGB extends GebSpec {
 		 when: "user goes to Levis Home Page"
 		 to LevisHomePage
 		 at LevisHomePage
-		 dismissPopup()
+		 //dismissPopup()
 		 
 		 then: "user is at Levis Home Page and navigating to Mens and Womens FitGuide Pages"
 		 navigatingToFitGuideMensAndWomen()
