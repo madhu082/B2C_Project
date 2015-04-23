@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="src/test/groovy"/>
 	<classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_65"/>
-	<classpathentry kind="lib" path="D:/Geb/junit-4.7.jar/junit-4.7.jar"/>
-	<classpathentry kind="lib" path="D:/Geb/geb-core-0.9.0-rc-1.jar/geb-core-0.9.0-rc-1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -30,7 +30,7 @@ import com.sun.java.util.jar.pack.Driver
 import com.lsco.test.PropertyProvider
 import com.lsco.test.page.hmc.HMCHomePage
 import com.lsco.test.page.hmc.HMCLoginPage
-
+import spock.lang.IgnoreRest
 class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebSpec {
 	
 	@GBLevisSmoke	
@@ -232,7 +232,7 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		
 	}
 
-
+@IgnoreRest
 	@DEDockersSmoke
 	def "CheckoutWithOrderLevelPromotion_Dockers__with_couponcode_Restriction_16025"()
 	{
@@ -344,7 +344,7 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		disableAllOtherPromotions()
 		
 		}
-	
+//@IgnoreRest
 @DEDockersSmoke
 	def "CheckoutWithOrderLevelPromotion_Dockers__with_No_Restriction_16021"()
 	{
@@ -353,7 +353,7 @@ class CheckoutWithOrderLevelPromotion_16004_16025_16028_16012_16021 extends GebS
 		at HMCLoginPage
 		fillHybrisLoginFields("qa.team","pass1234")
 		clickOnTDWithText("Marketing;Promotions")
-		disableAllOtherPromotions()
+	//	disableAllOtherPromotions()
 		
 		expandSearchOption()
 		String Couponidentifier= PropertyProvider.getInstance().getLocalizedPropertyValue("Couponidentifier_DE2")

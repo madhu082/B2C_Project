@@ -118,10 +118,11 @@ def clickOnTDWithText(menu){
 	
 	def searchPromoStatus(value){
 		waitFor(2000){$(".row:nth-child(4)>.comparator select")}
-		$(".row:nth-child(4)>.comparator select").click()
-		Select enableChk= new Select(driver.findElement(By.xpath("//select[@id='Content/GenericCondition[AbstractPromotion.enabled][operator]_select']")))
-		enableChk.selectByValue(value)
+	//	$(".row:nth-child(4)>.comparator select").click()
+	Select enableChk= new Select(driver.findElement(By.xpath("//select[@id='Content/GenericCondition[AbstractPromotion.enabled][operator]_select']")))
+	enableChk.selectByValue(value);
 		Thread.sleep(5000)
+		
 	}
 	
 	def disableAllOtherPromotions(){

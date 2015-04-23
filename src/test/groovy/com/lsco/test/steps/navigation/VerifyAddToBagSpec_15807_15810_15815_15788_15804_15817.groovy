@@ -12,7 +12,7 @@ import com.lsco.test.page.CartPage
 import com.lsco.test.page.navigation.MenShirtsPage
 import geb.spock.GebSpec
 
-
+import spock.lang.IgnoreRest
 //SPRING-15807--[GB] - [GB] - Levi - Add to bag - Verify error message when trying to add a product to the bag without selecting attributes.
 //SPRING-15810--[DE] - [DE] - Dockers - Add to bag - Verify adding to the bag from PDP
 //SPRING-15815--[DE] - [DE] - Dockers - Add to Bag - Verify that the user cannot add more than 3 products of the same SKU to the bag
@@ -72,7 +72,7 @@ class VerifyAddToBagSpec_15807_15810_15815_15788_15804_15817 extends GebSpec {
         at ProductDetailPage
         verifyIteminbag(productTitle, productStyle)
     }
-
+	
    @DEDockersSmoke
     def "Verify user cannot add more than 3 products of the same SKU to the bag_SPRING-15815"() {
         when: "Clicking on Link to Men Accessories ShopAll Link Page"
@@ -129,6 +129,7 @@ class VerifyAddToBagSpec_15807_15810_15815_15788_15804_15817 extends GebSpec {
 		checkProductPromo(false)
 	}
 	@DEDockersSmoke
+
 	def "Verify that the user cannot add more than 6 products of the same PC9 to the bag_SPRING-15817"() {
 		when: "Clicking on Link to Men Accessories ShopAll Page"
 		to LevisHomePage
