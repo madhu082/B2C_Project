@@ -30,7 +30,7 @@ import com.lsco.test.PropertyProvider
 
 class CheckoutWithVouchers_16008_16010_16029_16031 extends GebSpec {
 	
-	@GBLevisSmoke	
+	//@GBLevisSmoke	
 	def "Checkout with serial voucher_16008"()
 	{
 		when: "Going to Levis GB Home Page and clicking on My Account"
@@ -101,7 +101,7 @@ class CheckoutWithVouchers_16008_16010_16029_16031 extends GebSpec {
 		chksavingsAmount(savingsamount)	
 		
 	}
-	@GBLevisSmoke
+	//@GBLevisSmoke
 	def "Checkout with promotional voucher_16010"()
 	{
 		when: "Going to Levis GB Home Page and clicking on My Account"
@@ -173,7 +173,7 @@ class CheckoutWithVouchers_16008_16010_16029_16031 extends GebSpec {
 		
 	}
 	
-	@DEDockersSmoke
+	//@DEDockersSmoke
 	def "Checkout with serial voucher_16029"()
 	{
 		when: "Going to Home Page and clicking on My Account"
@@ -247,7 +247,7 @@ class CheckoutWithVouchers_16008_16010_16029_16031 extends GebSpec {
 		
 		}
 	
-	@DEDockersSmoke
+	///@DEDockersSmoke
 	def "Checkout with promotional voucher_16031"()
 	{
 		when: "Going to Home Page and clicking on My Account"
